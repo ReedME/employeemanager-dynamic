@@ -1,35 +1,22 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
-import axios from 'axios/index';
-import {Avatar, AppBar, Button, Card, CardContent, Icon, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Toolbar, Typography} from '@material-ui/core';
+import {connect} from 'react-redux';
+import {AppBar, Card, CardContent, Toolbar, Typography} from '@material-ui/core';
 import classNames from 'classnames';
 import {FuseAnimateGroup} from '@fuse';
 
-const styles = theme => ({
+const styles = () => ({
     root: {}
 });
 
 class AboutTab extends Component {
 
-    state = {
-        general: null,
-        work   : null,
-        contact: null,
-        groups : null,
-        friends: null
-    };
-
-    componentDidMount()
-    {
-        axios.get('/api/profile/about').then(res => {
-            this.setState(res.data);
-        });
-    }
+    
 
     render()
     {
-        const {classes} = this.props;
-        const {general, work, contact, groups, friends} = this.state;
+        const {classes, user} = this.props;
+        
 
         return (
             <div className={classNames(classes.root, "md:flex max-w-2xl")}>
@@ -40,8 +27,7 @@ class AboutTab extends Component {
                             animation: "transition.slideUpBigIn"
                         }}
                     >
-                        {general && (
-                            <Card className="w-full mb-16">
+                        <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
                                         <Typography variant="subtitle1" color="inherit" className="flex-1">
@@ -53,15 +39,15 @@ class AboutTab extends Component {
                                 <CardContent>
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Gender</Typography>
-                                        <Typography>{general.gender}</Typography>
+                                        <Typography>{user.data.displayName}</Typography>
                                     </div>
 
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Birthday</Typography>
-                                        <Typography>{general.birthday}</Typography>
+                                        <Typography>{user.data.displayName}</Typography>
                                     </div>
 
-                                    <div className="mb-24">
+                                   {/*} <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Locations</Typography>
 
                                         {general.locations.map((location) => (
@@ -70,18 +56,18 @@ class AboutTab extends Component {
                                                 <Icon className="text-16 ml-4" color="action">location_on</Icon>
                                             </div>
                                         ))}
-                                    </div>
+                                    </div> */}
 
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">About Me</Typography>
-                                        <Typography>{general.about}</Typography>
+                                        <Typography>{user.data.displayName}</Typography>
                                     </div>
 
                                 </CardContent>
                             </Card>
-                        )}
+                       
 
-                        {work && (
+                        
                             <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
@@ -94,37 +80,38 @@ class AboutTab extends Component {
                                 <CardContent>
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Occupation</Typography>
-                                        <Typography>{work.occupation}</Typography>
+                                        <Typography>{user.data.email}</Typography>
                                     </div>
 
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Skills</Typography>
-                                        <Typography>{work.skills}</Typography>
+                                        <Typography>{user.data.email}</Typography>
                                     </div>
 
-                                    <div className="mb-24">
+                                  {/*  <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Jobs</Typography>
                                         <table className="">
                                             <tbody>
-                                                {work.jobs.map((job) => (
-                                                    <tr key={job.company}>
+                                                {user.data.email.map((job) => (
+                                                    <tr key={job}>
                                                         <td className="pr-16">
-                                                            <Typography>{job.company}</Typography>
+                                                            <Typography>{job}</Typography>
                                                         </td>
                                                         <td>
-                                                            <Typography color="textSecondary">{job.date}</Typography>
+                                                            <Typography color="textSecondary">{job}</Typography>
                                                         </td>
                                                     </tr>
                                                 ))}
                                             </tbody>
                                         </table>
                                     </div>
+                                    */}
                                 </CardContent>
                             </Card>
-                        )}
+                        
 
-                        {contact && (
-                            <Card className="w-full mb-16">
+                        
+                           {/* <Card className="w-full mb-16">
                                 <AppBar position="static" elevation={0}>
                                     <Toolbar className="pl-16 pr-8">
                                         <Typography variant="subtitle1" color="inherit" className="flex-1">
@@ -136,13 +123,13 @@ class AboutTab extends Component {
                                 <CardContent>
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Address</Typography>
-                                        <Typography>{contact.address}</Typography>
+                                        <Typography>{user.data.photoURL}</Typography>
                                     </div>
 
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Tel.</Typography>
 
-                                        {contact.tel.map((tel) => (
+                                        {user.data.photoURL.map((tel) => (
                                             <div className="flex items-center" key={tel}>
                                                 <Typography>{tel}</Typography>
                                             </div>
@@ -152,7 +139,7 @@ class AboutTab extends Component {
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Website</Typography>
 
-                                        {contact.websites.map((website) => (
+                                        {user.data.photoURL.map((website) => (
                                             <div className="flex items-center" key={website}>
                                                 <Typography>{website}</Typography>
                                             </div>
@@ -162,7 +149,7 @@ class AboutTab extends Component {
                                     <div className="mb-24">
                                         <Typography className="font-bold mb-4 text-15">Emails</Typography>
 
-                                        {contact.emails.map((email) => (
+                                        {user.data.photoURL.map((email) => (
                                             <div className="flex items-center" key={email}>
                                                 <Typography>{email}</Typography>
                                             </div>
@@ -170,78 +157,21 @@ class AboutTab extends Component {
                                     </div>
 
                                 </CardContent>
-                            </Card>
-                        )}
+                            </Card> */}
+                        
                     </FuseAnimateGroup>
                 </div>
 
-                <div className="flex flex-col md:w-320">
-                    <FuseAnimateGroup
-                        enter={{
-                            animation: "transition.slideUpBigIn"
-                        }}
-                    >
-                        <Card className="w-full mb-16">
-                            <AppBar position="static" elevation={0}>
-                                <Toolbar className="pl-16 pr-8">
-                                    <Typography variant="subtitle1" color="inherit" className="flex-1">
-                                        Friends
-                                    </Typography>
-                                    <Button className="normal-case" color="inherit" size="small">See 454 more</Button>
-                                </Toolbar>
-                            </AppBar>
-                            <CardContent className="p-0">
-                                <List className="p-8">
-                                    {friends && friends.map((friend) => (
-                                        <img key={friend.id} className="w-64 m-4" src={friend.avatar} alt={friend.name}/>
-                                    ))}
-                                </List>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="w-full mb-16">
-                            <AppBar position="static" elevation={0}>
-                                <Toolbar className="pl-16 pr-8">
-                                    <Typography variant="subtitle1" color="inherit" className="flex-1">
-                                        Joined Groups
-                                    </Typography>
-                                    <Button className="normal-case" color="inherit" size="small">See 6 more</Button>
-                                </Toolbar>
-                            </AppBar>
-                            <CardContent className="p-0">
-                                <List className="p-0">
-                                    {groups && groups.map((group) => (
-                                        <ListItem key={group.id}>
-                                            <Avatar alt={group.name}>{group.name[0]}</Avatar>
-                                            <ListItemText
-                                                primary={(
-                                                    <div className="">
-                                                        <Typography className="inline font-medium" color="primary" paragraph={false}>
-                                                            {group.name}
-                                                        </Typography>
-
-                                                        <Typography className="inline ml-4" paragraph={false}>
-                                                            {group.category}
-                                                        </Typography>
-                                                    </div>
-                                                )}
-                                                secondary={group.members}
-                                            />
-                                            <ListItemSecondaryAction>
-                                                <IconButton>
-                                                    <Icon>more_vert</Icon>
-                                                </IconButton>
-                                            </ListItemSecondaryAction>
-                                        </ListItem>
-                                    ))}
-                                </List>
-                            </CardContent>
-                        </Card>
-                    </FuseAnimateGroup>
-                </div>
-            </div>
+               </div>
         );
     }
 }
 
-export default withStyles(styles, {withTheme: true})(AboutTab);
+function mapStateToProps({auth})
+{
+    return {
+        user: auth.user
+    }
+}
+
+export default withStyles(styles, {withTheme: true})(connect(mapStateToProps)(AboutTab));

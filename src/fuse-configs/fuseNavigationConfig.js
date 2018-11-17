@@ -1,4 +1,4 @@
-import {MaterialUINavigation} from 'main/content/components/material-ui/MaterialUINavigation';
+// import {MaterialUINavigation} from 'main/content/components/material-ui/MaterialUINavigation';
 import {authRoles} from 'auth';
 
 export const fuseNavigationConfig = [
@@ -9,7 +9,7 @@ export const fuseNavigationConfig = [
         'icon'    : 'apps',
        
         'children': [
-            {
+            /* {
                 'id'      : 'dashboards',
                 'title'   : 'Dashboards',
                 'type'    : 'collapse',
@@ -22,7 +22,7 @@ export const fuseNavigationConfig = [
                         'url'  : '/apps/dashboards/analytics'
                     }
                 ]
-            },
+            }, 
             {
                 'id'   : 'calendar',
                 'title': 'Calendar',
@@ -30,7 +30,7 @@ export const fuseNavigationConfig = [
                 'icon' : 'today',
                 'url'  : '/apps/calendar'
             },
-            {
+           {
                 'id'      : 'e-commerce',
                 'title'   : 'E-Commerce',
                 'type'    : 'collapse',
@@ -66,7 +66,7 @@ export const fuseNavigationConfig = [
                         'exact': true
                     }
                 ]
-            },
+            }, 
             {
                 'id'   : 'mail',
                 'title': 'Mail',
@@ -123,7 +123,31 @@ export const fuseNavigationConfig = [
                 'type' : 'item',
                 'icon' : 'assessment',
                 'url'  : '/apps/scrumboard'
+            } */
+            {
+                'id'   : 'profile',
+                'title': 'My Profile',
+                'type' : 'item',
+                'icon' : 'person',
+                'url'  : '/pages/profile'
+            },
+            {
+                'id'   : 'profile',
+                'title': 'Company Induction',
+                'type' : 'item',
+                'icon' : 'check_box',
+                'url'  : '/pages/profile'
+            },
+            {
+                'id'   : 'profile',
+                'title': 'Leave Request',
+                'type' : 'item',
+                'icon' : 'today',
+                'url'  : '/pages/profile'
             }
+            
+
+
         ]
     },
     {
@@ -133,7 +157,7 @@ export const fuseNavigationConfig = [
         auth      : authRoles.manager,
         'icon'    : 'pages',
         'children': [
-            {
+           /* {
                 'id'      : 'authentication',
                 'title'   : 'Authentication',
                 'type'    : 'collapse',
@@ -327,8 +351,24 @@ export const fuseNavigationConfig = [
                 'icon' : 'import_contacts',
                 'url'  : '/pages/knowledge-base'
             }
-        ]
+        */
+       {
+        'id'   : 'profile',
+        'title': 'Manage Employees',
+        'type' : 'item',
+        'icon' : 'receipt',
+        'url'  : '/pages/profile'
     },
+    {
+        'id'   : 'profile',
+        'title': 'Calendar',
+        'type' : 'item',
+        'icon' : 'today',
+        'url'  : '/pages/profile'
+    }
+
+        ]
+    },/*
     {
         'id'      : 'user-interface',
         'title'   : 'User Interface',
@@ -928,7 +968,7 @@ export const fuseNavigationConfig = [
                         ]
                     }
                 ]
-            }
-        ]
-    }
+            } 
+        ] 
+    } */
 ];
