@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles/index';
 import classNames from 'classnames';
-import {Avatar, Button, Icon, IconButton, ListItemIcon, ListItemText, Popover, MenuItem, Typography, Hidden} from '@material-ui/core';
+import {Avatar, Button, Icon, ListItemIcon, ListItemText, Popover, MenuItem, Typography} from '@material-ui/core';
 import {connect} from 'react-redux';
 import * as quickPanelActions from 'main/quickPanel/store/actions';
 import * as authActions from 'auth/store/actions';
@@ -38,7 +38,7 @@ class MainToolbar extends Component {
 
     render()
     {
-        const {classes, toggleQuickPanel, user, logout, openChatPanel} = this.props;
+        const {classes, user, logout} = this.props;
         const {userMenu} = this.state;
 
         return (
@@ -115,12 +115,6 @@ class MainToolbar extends Component {
                                     </ListItemIcon>
                                     <ListItemText className="pl-0" primary="My Profile"/>
                                 </MenuItem>
-                                <MenuItem component={Link} to="/apps/mail" onClick={this.userMenuClose}>
-                                    <ListItemIcon>
-                                        <Icon>mail</Icon>
-                                    </ListItemIcon>
-                                    <ListItemText className="pl-0" primary="Inbox"/>
-                                </MenuItem>
                                 <MenuItem
                                     onClick={() => {
                                         logout();
@@ -136,25 +130,7 @@ class MainToolbar extends Component {
                         )}
                     </Popover>
 
-                    <div className={classes.seperator}/>
-
-                    <IconButton className="w-64 h-64">
-                        <Icon>search</Icon>
-                    </IconButton>
-
-                    <Hidden lgUp>
-                        <div className={classes.seperator}/>
-
-                        <IconButton className="w-64 h-64" onClick={openChatPanel}>
-                            <Icon>chat</Icon>
-                        </IconButton>
-                    </Hidden>
-
-                    <div className={classes.seperator}/>
-
-                    <IconButton className="w-64 h-64" onClick={() => toggleQuickPanel(true)}>
-                        <Icon>format_list_bulleted</Icon>
-                    </IconButton>
+                    
                 </div>
             </div>
         );

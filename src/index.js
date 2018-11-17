@@ -17,12 +17,8 @@ import {FuseLayout, FuseTheme, FuseAuthorization} from '@fuse';
 import MainToolbar from './main/MainToolbar';
 import MainNavbarContent from './main/MainNavbarContent';
 import MainNavbarHeader from './main/MainNavbarHeader';
-import MainFooter from './main/MainFooter';
 import jssExtend from 'jss-extend'
-import QuickPanel from 'main/quickPanel/QuickPanel';
 import store from 'store';
-import SettingsPanel from 'main/SettingsPanel';
-import ChatPanel from 'main/chatPanel/ChatPanel';
 import {Auth} from 'auth';
 
 const jss = create({
@@ -51,18 +47,8 @@ ReactDOM.render(
                                 navbarContent={
                                     <MainNavbarContent/>
                                 }
-                                footer={
-                                    <MainFooter/>
-                                }
-                                rightSidePanel={
-                                    <React.Fragment>
-                                        <ChatPanel/>
-                                        <QuickPanel/>
-                                    </React.Fragment>
-                                }
-                                contentWrapper={
-                                    <SettingsPanel/>
-                                }
+                                
+                                
                             >
                             </FuseLayout>
                         </FuseTheme>

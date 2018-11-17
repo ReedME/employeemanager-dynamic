@@ -18,7 +18,7 @@ export const USER_LOGGED_OUT = '[USER] LOGGED OUT';
 export function setUserDataAuth0(tokenData)
 {
     const user = {
-        role: 'admin',
+        role: 'employee',
         from: 'auth0',
         data: {
             displayName: tokenData.username,
@@ -70,7 +70,7 @@ export function createUserSettingsFirebase(authUser)
             {
                 uid : authUser.uid,
                 from: 'firebase',
-                role: "admin",
+                role: "employee",
                 data: {
                     displayName: authUser.displayName,
                     email      : authUser.email,

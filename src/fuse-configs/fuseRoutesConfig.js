@@ -12,18 +12,27 @@ import {LoginConfig} from 'main/content/login/LoginConfig';
 import {RegisterConfig} from 'main/content/register/RegisterConfig';
 import {LogoutConfig} from 'main/content/logout/LogoutConfig';
 import {CallbackConfig} from 'main/content/callback/CallbackConfig';
+import _ from '@lodash';
+import {authRoles} from 'auth';
+
+function setAppAuth(configs)
+{
+    return configs.map(config => _.merge({}, config, {auth: authRoles.employee}))
+}
 
 const routeConfigs = [
-    ...appsConfigs,
-    ...pagesConfigs,
-    ...authRoleExamplesConfigs,
-    ComponentsConfig,
-    ComponentsThirdPartyConfig,
-    UserInterfaceConfig,
-    GettingStartedConfig,
+    ...setAppAuth([
+        ...appsConfigs,
+        ...pagesConfigs,
+        ...authRoleExamplesConfigs,
+        ComponentsConfig,
+        ComponentsThirdPartyConfig,
+        UserInterfaceConfig,
+        GettingStartedConfig
+    ]),
     LoginConfig,
-    RegisterConfig,
     LogoutConfig,
+    RegisterConfig,
     CallbackConfig
 ];
 

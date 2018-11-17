@@ -30,9 +30,9 @@ const fuseSettingsConfig = {
     customScrollbars: true,
     theme           : {
         main   : 'default',
-        navbar : 'mainThemeDark',
+        navbar : 'mainThemeLight',
         toolbar: 'mainThemeLight',
-        footer : 'mainThemeDark'
+        footer : 'mainThemeLight'
     }
 };
 

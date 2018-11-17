@@ -72,7 +72,7 @@ class FirebaseRegisterTab extends Component {
                         className="mb-16"
                         type="text"
                         name="displayName"
-                        label="Display name"
+                        label="Full name"
                         validations={{
                             minLength: 4
                         }}
@@ -142,7 +142,7 @@ class FirebaseRegisterTab extends Component {
                         aria-label="REGISTER WITH FIREBASE"
                         disabled={!canSubmit}
                     >
-                        Register with Firebase
+                        Register
                     </Button>
                 </Formsy>
             </div>

@@ -3,10 +3,11 @@ import {authRoles} from 'auth';
 
 export const fuseNavigationConfig = [
     {
-        'id'      : 'applications',
-        'title'   : 'Applications',
+        'id'      : 'employeeCenter',
+        'title'   : 'Employee Center',
         'type'    : 'group',
         'icon'    : 'apps',
+       
         'children': [
             {
                 'id'      : 'dashboards',
@@ -126,9 +127,10 @@ export const fuseNavigationConfig = [
         ]
     },
     {
-        'id'      : 'pages',
-        'title'   : 'Pages',
+        'id'      : 'managerCenter',
+        'title'   : 'Manager Tools',
         'type'    : 'group',
+        auth      : authRoles.manager,
         'icon'    : 'pages',
         'children': [
             {
@@ -792,7 +794,7 @@ export const fuseNavigationConfig = [
                 'id'   : 'logout',
                 'title': 'Logout',
                 'type' : 'item',
-                auth   : authRoles.user,
+                auth   : authRoles.employee,
                 'url'  : '/logout',
                 'icon' : 'exit_to_app'
             },
@@ -822,7 +824,7 @@ export const fuseNavigationConfig = [
                 'id'   : 'only-staff-navigation-item',
                 'title': 'Nav item only for Staff',
                 'type' : 'item',
-                'auth' : authRoles.staff,
+                'auth' : authRoles.manager,
                 'url'  : '/auth/staff-role-example',
                 'icon' : 'verified_user'
             },

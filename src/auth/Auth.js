@@ -14,9 +14,9 @@ class Auth extends Component {
 
         /**
          * Comment the line if you do not use Auth0
-         */
+        
         auth0Service.init();
-
+ */
         /**
          * Comment the line if you do not use Firebase
          */
@@ -58,7 +58,7 @@ class Auth extends Component {
         firebaseService.onAuthStateChanged(authUser => {
             if ( authUser )
             {
-                this.props.showMessage({message: 'Logging in with Firebase'});
+                this.props.showMessage({message: 'Logging in'});
 
                 /**
                  * Retrieve user data from Firebase
@@ -67,7 +67,7 @@ class Auth extends Component {
 
                     this.props.setUserDataFirebase(user, authUser);
 
-                    this.props.showMessage({message: 'Logged in with Firebase'});
+                    this.props.showMessage({message: 'Logged in'});
                 })
             }
         });

@@ -113,7 +113,7 @@ class FirebaseLoginTab extends Component {
                         disabled={!canSubmit}
                         value="firebase"
                     >
-                        Log in with Firebase
+                        Log in
                     </Button>
 
                 </Formsy>
