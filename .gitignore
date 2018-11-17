@@ -19,6 +19,7 @@
 /.idea
 /.vscode
 
+/src/firebaseService
 /src/styles/fuse-helpers.css
 
 npm-debug.log*
