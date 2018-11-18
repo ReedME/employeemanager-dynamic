@@ -1,5 +1,7 @@
+import firebaseAPI_KEY from '../keys/keys';
+
 const prodConfig = {
-    apiKey: "AIzaSyCsVd5CIs_Mz-JH4bRmJnvck5ko3etGjXc",
+    apiKey: firebaseAPI_KEY,
     authDomain: "employee-manager-dev-6e035.firebaseapp.com",
     databaseURL: "https://employee-manager-dev-6e035.firebaseio.com",
     projectId: "employee-manager-dev-6e035",
@@ -8,7 +10,7 @@ const prodConfig = {
 };
 
 const devConfig = {
-    apiKey: "AIzaSyCsVd5CIs_Mz-JH4bRmJnvck5ko3etGjXc",
+    apiKey: firebaseAPI_KEY,
     authDomain: "employee-manager-dev-6e035.firebaseapp.com",
     databaseURL: "https://employee-manager-dev-6e035.firebaseio.com",
     projectId: "employee-manager-dev-6e035",

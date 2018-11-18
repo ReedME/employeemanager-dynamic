@@ -70,7 +70,7 @@ class ProfilePage extends Component {
                             <Button className="normal-case" variant="contained" color="primary" aria-label="Send Message">Send Message</Button>
                         </div> */}
                     </div>
-                }
+                } 
                 contentToolbar={
                     <Tabs
                         value={value}
