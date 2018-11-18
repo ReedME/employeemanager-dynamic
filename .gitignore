@@ -15,11 +15,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 /.idea
 /.vscode
 
-/src/firebaseService
+/src/keys
 /src/styles/fuse-helpers.css
 
 npm-debug.log*
