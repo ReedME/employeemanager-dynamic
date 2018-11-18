@@ -1,5 +1,5 @@
 
 
-const firebaseAPI_KEY = "AIzaSyCsVd5CIs_Mz-JH4bRmJnvck5ko3etGjXc";
+const firebaseAPI_KEY = "";
 
 export default firebaseAPI_KEY;

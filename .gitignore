@@ -20,7 +20,7 @@
 /.idea
 /.vscode
 
-/src/keys
+
 /src/styles/fuse-helpers.css
 
 npm-debug.log*
